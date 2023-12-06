@@ -1,0 +1,87 @@
+<nav class="navbar">
+  <div class="navbar-logo">
+    <a href="#">
+      <img src="/public/image/unnamed.png" alt="Logo">
+    </a>
+  </div>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/addlisting">Add Listings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/viewprimarylistings">View Listings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/viewScoutSubscribedlistings">View Listings Subscribed By Scout</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/primaryWallet">My Wallet</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/profile">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </li>
+  </ul>
+</nav>
+
+<br>
+
+{{#if isEmptyListings}}
+  <p>No listings found.</p>
+{{else}}
+  {{#each listings}}
+    <div class="listing-card">
+      <form class="listing-form" data-listing-id="{{_id}}">
+        <label for="listingName-{{_id}}">Listing Name:</label>
+        <input type="text" id="listingName-{{_id}}" name="listingName" value="{{listingName}}" readonly>
+
+        <label for="listingLink-{{_id}}">Listing Link:</label>
+        <input type="text" id="listingLink-{{_id}}" name="listingLink" value="{{listingLink}}" readonly>
+
+        <label for="street-{{_id}}">Street:</label>
+        <input type="text" id="street-{{_id}}" name="street" value="{{street}}" readonly>
+
+        <label for="city-{{_id}}">City:</label>
+        <input type="text" id="city-{{_id}}" name="city" value="{{city}}" readonly>
+
+        <label for="state-{{_id}}">State:</label>
+        <input type="text" id="state-{{_id}}" name="state" value="{{state}}" readonly>
+
+        <label for="country-{{_id}}">Country:</label>
+        <input type="text" id="country-{{_id}}" name="country" value="{{country}}" readonly>
+
+        <label for="pincode-{{_id}}">Pincode:</label>
+        <input type="text" id="pincode-{{_id}}" name="pincode" value="{{pincode}}" readonly>
+
+        <label for="rent-{{_id}}">Rent:</label>
+        <input type="text" id="rent-{{_id}}" name="rent" value="{{rent}}" readonly>
+
+        <label for="additionalInfo-{{_id}}">Additional Info:</label>
+        <input type="text" id="additionalInfo-{{_id}}" name="additionalInfo" value="{{additionalInfo}}" readonly>
+
+        <label for="agentNumber-{{_id}}">Agent Number:</label>
+        <input type="text" id="agentNumber-{{_id}}" name="agentNumber" value="{{agentNumber}}" readonly>
+
+        <label for="ownerNumber-{{_id}}">Owner Number:</label>
+        <input type="text" id="ownerNumber-{{_id}}" name="ownerNumber" value="{{ownerNumber}}" readonly>
+
+        <label for="reward-{{_id}}">Reward:</label>
+        <input type="text" id="reward-{{_id}}" name="reward" value="{{reward}}" readonly>
+
+        <button type="button" class="edit-btn">Edit</button>
+        <button type="button" class="save-btn" style="display: none;">Save</button>
+      </form>
+      <div>
+        {{{successMsg}}}
+      {{{error}}}
+      </div>
+    </div>
+  {{/each}}
+{{/if}}
+
+<script src="/public/js/listings.js"></script>

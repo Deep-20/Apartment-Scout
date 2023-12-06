@@ -1,0 +1,55 @@
+<nav class="navbar">
+  <div class="navbar-logo">
+    <a href="#">
+      <img src="/public/image/unnamed.png" alt="Logo">
+    </a>
+  </div>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/addlisting">Add Listings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/viewprimarylistings">View Listings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/viewScoutSubscribedlistings">View Listings Subscribed By Scout</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/primaryWallet">My Wallet</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/profile">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </li>
+  </ul>
+</nav>
+<br>
+
+
+{{{success}}}
+
+<div class="centered-container">
+  <div class="card" id="wallet-card">
+      <div class="card-header">
+          <h1 id="user-name">{{name}}</h1>
+      </div>
+      <div class="card-body">
+          <p>Wallet Balance: $<span id="wallet-balance">{{walletBalance}}</span></p>
+          {{#if isBalZero}}
+            <p>You don't have money!!</p>
+          {{/if}}
+       
+          <button id="addMoneyButton" >Add Money</button>
+      </div>
+  </div>
+</div>
+
+<script src="/public/js/addmoney.js"></script>
+
+
+

@@ -1,0 +1,56 @@
+<nav class="navbar">
+  <div class="navbar-logo">
+    <a href="#">
+      <img src="/public/image/unnamed.png" alt="Logo">
+    </a>
+  </div>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/homepage">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/registeruser">New User Register</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/login">Login</a>
+    </li>
+  </ul>
+  
+</nav>
+<div class="pageTitle">
+    <p>
+        {{title}}
+    </p>
+</div>
+
+{{!Took reference of this from w3 school link provided in lab8-> https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_submit}}
+    <form class="login-form" method="post" id="login-form">
+    <label for="emailAddressInput">Email Address <span class="mandatory">*</span>:</label><br>
+
+{{#if email}}
+    <input type="email" id="emailAddressInput" name="emailAddressInput" placeholder="Please enter your email address", value={{email}}><br>
+{{else}}
+    <input type="email" id="emailAddressInput" name="emailAddressInput" placeholder="Please enter your email address"><br>
+{{/if}}
+    <label for="passwordInput">Password <span class="mandatory">*</span>:</label><br>
+    <input type="password" id="passwordInput" name="passwordInput" placeholder="Please enter your password"><br>
+<label for="userTypeInput">User Type <span class="mandatory">*</span>:</label>
+<select id="userTypeInput" name="userTypeInput" required>
+    <option value="">Select User Type</option>
+    <option value="primary user" {{#if userType}} {{#if (eq userType 'primary user')}}selected{{/if}}{{/if}}>Primary User</option>
+    <option value="scout user" {{#if userType}} {{#if (eq userType 'scout user')}}selected{{/if}}{{/if}}>Scout User</option>
+</select><br>
+    <input type="submit" value="Submit" aria-label="Submit To Login">
+    <p>
+    Are you a new user? Please click here to <a href="/registeruser">register</a>
+    </p>
+</form> 
+
+<div id="error" class="error" hidden></div>
+{{{error}}}
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+    <script src="/public/js/main.js" ></script>
